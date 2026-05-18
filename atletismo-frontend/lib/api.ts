@@ -79,3 +79,9 @@ export async function crearMarca(datos: object, token: string) {
   if (!res.ok) throw new Error("Error al crear marca")
   return res.json()
 }
+
+export async function getCompetencias() {
+  const res = await fetch(`${API_URL}/competencias/`)
+  if (!res.ok) throw new Error("Error al cargar competencias")
+  return res.json()
+}

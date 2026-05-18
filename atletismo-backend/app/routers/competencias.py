@@ -26,7 +26,7 @@ def listar_competencias(
         query = query.filter(Competencia.tipo == tipo)
     if nivel:
         query = query.filter(Competencia.nivel == nivel)
-    return query.order_by(Competencia.fecha.desc()).all()
+    return query.order_by(Competencia.fecha_inicio.desc()).all()
 
 @router.get("/{id}", response_model=CompetenciaOut)
 def obtener_competencia(id: int, db: Session = Depends(get_db)):
