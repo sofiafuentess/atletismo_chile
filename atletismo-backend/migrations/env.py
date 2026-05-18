@@ -7,7 +7,7 @@ from sqlalchemy import engine_from_config, pool
 from alembic import context
 
 from app.database import Base
-from app.models import atleta, club, prueba, competencia, marca
+from app.models import atleta, club, prueba, competencia, marca, usuario
 
 config = context.config
 fileConfig(config.config_file_name)

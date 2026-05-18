@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.models import atleta, club, prueba, competencia, marca
 from app.routers import atletas, competencias, marcas, pruebas, rankings
-
+from app.routers import auth
 app = FastAPI(title="Plataforma Nacional de Atletismo")
 
 app.add_middleware(
@@ -13,6 +13,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(auth.router)
 app.include_router(atletas.router)
 app.include_router(competencias.router)
 app.include_router(pruebas.router)

@@ -1,8 +1,16 @@
-backend/__pycache__/
-backend/**/__pycache__/
-backend/.env
-backend/*.pyc
-frontend/node_modules/
-frontend/.next/
-frontend/.env.local
+# Python
+atletismo-backend/__pycache__/
+atletismo-backend/**/__pycache__/
+atletismo-backend/.env
+atletismo-backend/**/*.pyc
+atletismo-backend/migrations/__pycache__/
+atletismo-backend/migrations/versions/__pycache__/
+
+# Node
+atletismo-frontend/node_modules/
+atletismo-frontend/.next/
+atletismo-frontend/.env.local
+
+# General
 .DS_Store
+python
