@@ -30,3 +30,52 @@ export async function getAtletas() {
   if (!res.ok) throw new Error("Error al cargar atletas")
   return res.json()
 }
+
+export async function login(email: string, password: string) {
+  const res = await fetch(`${API_URL}/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password })
+  })
+  if (!res.ok) throw new Error("Credenciales incorrectas")
+  return res.json()
+}
+
+export async function crearAtleta(datos: object, token: string) {
+  const res = await fetch(`${API_URL}/atletas/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify(datos)
+  })
+  if (!res.ok) throw new Error("Error al crear atleta")
+  return res.json()
+}
+
+export async function crearCompetencia(datos: object, token: string) {
+  const res = await fetch(`${API_URL}/competencias/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify(datos)
+  })
+  if (!res.ok) throw new Error("Error al crear competencia")
+  return res.json()
+}
+
+export async function crearMarca(datos: object, token: string) {
+  const res = await fetch(`${API_URL}/marcas/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify(datos)
+  })
+  if (!res.ok) throw new Error("Error al crear marca")
+  return res.json()
+}
