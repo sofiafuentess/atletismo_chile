@@ -3,8 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.models import atleta, club, prueba, competencia, marca, entrenador, entrenador_atleta
 from app.routers import atletas, competencias, marcas, pruebas, rankings, entrenadores
 from app.routers import auth
+from fastapi.staticfiles import StaticFiles
 app = FastAPI(title="Plataforma Nacional de Atletismo")
 
+
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
